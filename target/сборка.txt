@@ -1,0 +1,8 @@
+# Перейди в папку проекта
+cd api-security-analyzer
+
+# Собери проект
+mvn clean compile
+
+# Если компиляция успешна, создай JAR файл
+mvn package

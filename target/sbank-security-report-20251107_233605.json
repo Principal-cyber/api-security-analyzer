@@ -1,0 +1,113 @@
+{
+  "timestamp" : "2025-11-07T23:34:34.337487335",
+  "target_url" : "https://sbank.open.bankingapi.ru",
+  "vulnerabilities" : [ {
+    "title" : "Potential Lack of Rate Limiting",
+    "severity" : "MEDIUM",
+    "description" : "No obvious rate limiting detected on authentication endpoints",
+    "endpoint" : "/auth/bank-token",
+    "recommendation" : "Implement rate limiting to prevent brute force attacks",
+    "cwe" : "CWE-770",
+    "owasp_category" : "API4:2023 - Unrestricted Resource Consumption"
+  }, {
+    "title" : "Missing Security Header: Content-Security-Policy",
+    "severity" : "MEDIUM",
+    "description" : "Security header Content-Security-Policy is missing",
+    "endpoint" : "All endpoints",
+    "recommendation" : "Add Content-Security-Policy header with appropriate security policy"
+  }, {
+    "title" : "Missing Security Header: X-Content-Type-Options",
+    "severity" : "MEDIUM",
+    "description" : "Security header X-Content-Type-Options is missing",
+    "endpoint" : "All endpoints",
+    "recommendation" : "Add X-Content-Type-Options header with appropriate security policy"
+  }, {
+    "title" : "Missing Security Header: X-Frame-Options",
+    "severity" : "MEDIUM",
+    "description" : "Security header X-Frame-Options is missing",
+    "endpoint" : "All endpoints",
+    "recommendation" : "Add X-Frame-Options header with appropriate security policy"
+  }, {
+    "title" : "Exposed API Documentation",
+    "severity" : "LOW",
+    "description" : "API documentation is publicly accessible: /docs",
+    "endpoint" : "/docs",
+    "recommendation" : "Restrict access to API documentation in production",
+    "cwe" : "CWE-1052",
+    "owasp_category" : "API9:2023 - Improper Inventory Management"
+  }, {
+    "title" : "SQL Injection Vulnerability",
+    "severity" : "HIGH",
+    "description" : "Potential SQL injection detected with payload: '; DROP TABLE users--",
+    "endpoint" : "/accounts/{account_id}",
+    "payload" : "'; DROP TABLE users--",
+    "recommendation" : "Implement parameterized queries and input validation",
+    "cwe" : "CWE-89",
+    "owasp_category" : "API8:2023 - Injection",
+    "http_status" : 500,
+    "response_time" : 146
+  }, {
+    "title" : "SQL Injection Vulnerability",
+    "severity" : "HIGH",
+    "description" : "Potential SQL injection detected with payload: 1' ORDER BY 1--",
+    "endpoint" : "/accounts/{account_id}/balances",
+    "payload" : "1' ORDER BY 1--",
+    "recommendation" : "Implement parameterized queries and input validation",
+    "cwe" : "CWE-89",
+    "owasp_category" : "API8:2023 - Injection",
+    "http_status" : 500,
+    "response_time" : 176
+  }, {
+    "title" : "Command Injection",
+    "severity" : "HIGH",
+    "description" : "Potential command injection with payload: ; ls -la",
+    "endpoint" : "/accounts/{account_id}/balances",
+    "payload" : "; ls -la",
+    "recommendation" : "Validate and sanitize all user inputs, use safe APIs for command execution",
+    "cwe" : "CWE-78",
+    "owasp_category" : "API8:2023 - Injection",
+    "http_status" : 500,
+    "response_time" : 144
+  }, {
+    "title" : "SQL Injection Vulnerability",
+    "severity" : "HIGH",
+    "description" : "Potential SQL injection detected with payload: ' OR '1'='1",
+    "endpoint" : "/accounts/{account_id}/transactions",
+    "payload" : "' OR '1'='1",
+    "recommendation" : "Implement parameterized queries and input validation",
+    "cwe" : "CWE-89",
+    "owasp_category" : "API8:2023 - Injection",
+    "http_status" : 500,
+    "response_time" : 149
+  }, {
+    "title" : "Command Injection",
+    "severity" : "HIGH",
+    "description" : "Potential command injection with payload: | whoami",
+    "endpoint" : "/accounts/{account_id}/transactions",
+    "payload" : "| whoami",
+    "recommendation" : "Validate and sanitize all user inputs, use safe APIs for command execution",
+    "cwe" : "CWE-78",
+    "owasp_category" : "API8:2023 - Injection",
+    "http_status" : 500,
+    "response_time" : 144
+  }, {
+    "title" : "Potential Lack of Rate Limiting",
+    "severity" : "MEDIUM",
+    "description" : "No rate limiting detected on authentication endpoint after multiple rapid requests",
+    "endpoint" : "/auth/bank-token",
+    "recommendation" : "Implement rate limiting and account lockout mechanisms",
+    "cwe" : "CWE-307",
+    "owasp_category" : "API2:2023 - Broken Authentication"
+  } ],
+  "statistics" : {
+    "critical_vulnerabilities" : 0,
+    "high_vulnerabilities" : 5,
+    "medium_vulnerabilities" : 5,
+    "total_vulnerabilities" : 11,
+    "low_vulnerabilities" : 1
+  },
+  "security_score" : 65.0,
+  "compliance_score" : 100.0,
+  "execution_time" : 91600,
+  "tested_endpoints" : 28
+}

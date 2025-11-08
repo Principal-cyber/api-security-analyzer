@@ -1,0 +1,14 @@
+# Анализируем VBank
+java -jar target/api-security-analyzer-1.0.0.jar \
+    https://vbank.open.bankingapi.ru \
+    https://vbank.open.bankingapi.ru/openapi.json
+
+# Анализируем ABank
+java -jar target/api-security-analyzer-1.0.0.jar \
+    https://abank.open.bankingapi.ru \
+    https://abank.open.bankingapi.ru/openapi.json
+
+# Анализируем SBank  
+java -jar target/api-security-analyzer-1.0.0.jar \
+    https://sbank.open.bankingapi.ru \
+    https://sbank.open.bankingapi.ru/openapi.json

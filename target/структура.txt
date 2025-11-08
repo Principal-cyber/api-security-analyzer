@@ -1,0 +1,17 @@
+# Создаем главную папку проекта
+mkdir api-security-analyzer
+cd api-security-analyzer
+
+# Создаем структуру папок src
+mkdir -p src/main/java/com/security/analyzer
+mkdir -p src/main/java/com/security/analyzer/config
+mkdir -p src/main/java/com/security/analyzer/core
+mkdir -p src/main/java/com/security/analyzer/analysis
+mkdir -p src/main/java/com/security/analyzer/model
+mkdir -p src/main/java/com/security/analyzer/client
+mkdir -p src/main/java/com/security/analyzer/plugins
+mkdir -p src/main/java/com/security/analyzer/plugins/fuzzing
+mkdir -p src/main/java/com/security/analyzer/cli
+mkdir -p src/main/resources
+mkdir -p src/test/java/com/security/analyzer
+mkdir -p config
