@@ -30,7 +30,7 @@
 
 ```bash
 # Клонирование репозитория
-git clone https://github.com/yourusername/api-security-analyzer.git
+git clone https://github.com/Principal-cyber/api-security-analyzer.git
 cd api-security-analyzer
 
 # Сборка проекта
